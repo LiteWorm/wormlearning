@@ -3,26 +3,27 @@ package com.liteworm.javaLearn.chapter01.calendarlearn;
 import java.util.Scanner;
 
 /**
- * ÈÕÀú²âÊÔ
- * ´Ó¼üÅÌÊäÈëÄêÔÂÈÕ£¬¼ÆËãÊÇÕâÒ»ÄêµÄµÚ¼¸Ìì
+ * æ—¥å†æµ‹è¯•
+ * ä»é”®ç›˜è¾“å…¥å¹´æœˆæ—¥ï¼Œè®¡ç®—æ˜¯è¿™ä¸€å¹´çš„ç¬¬å‡ å¤©
  * @author LiteWorm
  *
  */
 public class CalendarTest {
 
 	public static void main(String[] args) {
-		//1)´Ó¼üÅÌÊäÈëÄêÔÂÈÕ
+		//1)ä»é”®ç›˜è¾“å…¥å¹´æœˆæ—¥
 		Scanner sc = new Scanner(System.in);
-		System.out.println("ÇëÊäÈë Äê ÔÂ ÈÕ");
-		int year = sc.nextInt(); // Äê
-		int month = sc.nextInt(); //ÔÂ
-		int day = sc.nextInt();	 // ÈÕ
+		System.out.println("è¯·è¾“å…¥ å¹´ æœˆ æ—¥");
+		int year = sc.nextInt(); // å¹´
+		int month = sc.nextInt(); //æœˆ
+		int day = sc.nextInt();	 // æ—¥
 		
-		// 2) ¼ÆËãÈÕÆÚ¶ÔÓ¦ÕâÒ»ÄêµÄµÚ¼¸Ìì
+		// 2) è®¡ç®—æ—¥æœŸå¯¹åº”è¿™ä¸€å¹´çš„ç¬¬å‡ å¤©
 		int sumDays = getSumDays(year, month, day);
 		
-		// 3) ´òÓ¡¸ÃÈÕÆÚ¶ÔÓ¦ÕâÒ»ÄêµÄµÚ¼¸Ìì
-		System.out.println(year + "Äê" + month + "ÔÂ" + day + "ÈÕ,ÊÇ" + year + "µÚ" + sumDays + "Ìì");
+		// 3) æ‰“å°è¯¥æ—¥æœŸå¯¹åº”è¿™ä¸€å¹´çš„ç¬¬å‡ å¤©
+		System.out.println(year + "å¹´" + month + "æœˆ" + day + "æ—¥,æ˜¯" + year + "ç¬¬" + sumDays + "å¤©");
+		sc.getClass();
 //		Calendar ca = Calendar.getInstance();
 //		System.out.println(ca.getActualMaximum(field));
 
@@ -30,14 +31,14 @@ public class CalendarTest {
 
 
 	/**
-	 * ¼ÆËãÄêÔÂÈÕ¶ÔÓ¦ÕâÒ»ÄêµÄµÚ¼¸Ìì
+	 * è®¡ç®—å¹´æœˆæ—¥å¯¹åº”è¿™ä¸€å¹´çš„ç¬¬å‡ å¤©
 	 * @param year
 	 * @param month
 	 * @param day
 	 * @return
 	 */
 	private static int getSumDays(int year, int month, int day) {
-		int days = 0; //±£´æÕâ¸öÈÕÆÚ¶ÔÓ¦ÕâÒ»ÄêµÄ×ÜÌìÊı
+		int days = 0; //ä¿å­˜è¿™ä¸ªæ—¥æœŸå¯¹åº”è¿™ä¸€å¹´çš„æ€»å¤©æ•°
 		for(int i = 1 ; i < month ; i ++) {
 			days += getMonthDays(year, i);
 		}
@@ -47,7 +48,7 @@ public class CalendarTest {
 
 
 	/**
-	 * »ñÈ¡µ±ÔÂµÄÌìÊı
+	 * è·å–å½“æœˆçš„å¤©æ•°
 	 * @param year
 	 * @param month
 	 * @return
@@ -85,7 +86,7 @@ public class CalendarTest {
 
 
 	/**
-	 * ÅĞ¶ÏÊÇ·ñÎªÈòÄê
+	 * åˆ¤æ–­æ˜¯å¦ä¸ºé—°å¹´
 	 * @param year
 	 * @return
 	 */
