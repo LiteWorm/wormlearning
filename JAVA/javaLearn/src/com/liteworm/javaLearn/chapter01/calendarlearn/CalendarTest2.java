@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 
 /**
- * ����ʹ��Calendar ��ʵ��
+ * 测试Calendar 
  * @author LiteWorm
  *
  *
