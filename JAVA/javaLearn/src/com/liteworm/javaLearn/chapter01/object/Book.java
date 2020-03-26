@@ -1,11 +1,11 @@
 package com.liteworm.javaLearn.chapter01.object;
 /**
  *
- * ¶¨ÒåÊµÌåÀà
- * Ò»°ã°ÑËùÓĞ×Ö¶Î¶¼Ë½ÓĞ»¯£¬Ìá¹©getter()/setter()·½·¨¶Ô×Ö¶Î½øĞĞ·ÃÎÊ
- * Ò»°ãÖ»Ìá¹©Îç²Í¹¹Ôì
- * Ò»°ãĞèÒªÖØĞ´toString(), equals()/hashCode()
- * alt + shift + s  ¿ì½İÖØĞ´
+ * å®šä¹‰å®ä½“ç±»
+ * ä¸€èˆ¬æŠŠæ‰€æœ‰å­—æ®µéƒ½ç§æœ‰åŒ–ï¼Œæä¾›getter()/setter()æ–¹æ³•å¯¹å­—æ®µè¿›è¡Œè®¿é—®
+ * ä¸€èˆ¬åªæä¾›åˆé¤æ„é€ 
+ * ä¸€èˆ¬éœ€è¦é‡å†™toString(), equals()/hashCode()
+ * alt + shift + s  å¿«æ·é‡å†™
  * 
  * @author LiteWorm
  *
@@ -78,8 +78,8 @@ public class Book {
 	}
 
 
-	//ÖØĞ´toString()
-	//¿ì½İ¼ü alt + shift + s  Ñ¡ÔñÖØĞ´·½·¨»òÕßsetter()/getter()·½·¨
+	//é‡å†™toString()
+	//å¿«æ·é”® alt + shift + s  é€‰æ‹©é‡å†™æ–¹æ³•æˆ–è€…setter()/getter()æ–¹æ³•
 	@Override
 	public String toString() {
 		return "Book [bookNmme=" + bookNmme + ", author=" + author + ", price=" + price + ", press=" + press + ", isbn="
@@ -137,7 +137,7 @@ public class Book {
 	}
 
 
-	//ÎŞ²Î¹¹Ôì
+	//æ— å‚æ„é€ 
 	public Book() {
 		System.out.println(this.toString());
 	}
