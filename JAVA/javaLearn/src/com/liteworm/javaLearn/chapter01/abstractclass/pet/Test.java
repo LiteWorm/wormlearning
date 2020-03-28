@@ -20,5 +20,12 @@ public class Test {
         pet = new Cat();
         pet.sellMeng();
         master.feed(pet);
+
+        master.feed(new Pet() {
+            @Override
+            public void sellMeng() {
+                System.out.println("小猪哼哼~~~");
+            }
+        });
     }
 }
