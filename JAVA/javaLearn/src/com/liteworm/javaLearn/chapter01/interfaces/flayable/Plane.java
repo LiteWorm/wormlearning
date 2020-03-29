@@ -1,4 +1,4 @@
-package com.liteworm.javaLearn.chapter01.interfaces;
+package com.liteworm.javaLearn.chapter01.interfaces.flayable;
 
 /**
  * @ClassName Plane
