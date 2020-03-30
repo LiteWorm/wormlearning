@@ -8,7 +8,7 @@ package com.liteworm.javaLearn.chapter01.abstractclass.animals;
  * @Date 2020/3/29 1:29
  * @Version 1.0
  **/
-public abstract class Animal {
+public class Animal {
     public static void main(String[] args) {
 
     }

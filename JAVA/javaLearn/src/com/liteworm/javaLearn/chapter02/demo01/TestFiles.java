@@ -22,7 +22,7 @@ public class TestFiles {
     }
 
 
-    /*
+    /**
     * @auther LiteWorm
     * @ClassName TestFiles
     * @FunctionName listFullPathTrees
@@ -48,7 +48,7 @@ public class TestFiles {
     }
 
 
-    /*
+    /**
     * @auther LiteWorm
     * @ClassName TestFiles
     * @FunctionName listFileTrees
@@ -73,7 +73,7 @@ public class TestFiles {
         }
     }
 
-    /*
+    /**
     * @auther LiteWorm
     * @ClassName TestFiles
     * @FunctionName listFileTreesByPath
