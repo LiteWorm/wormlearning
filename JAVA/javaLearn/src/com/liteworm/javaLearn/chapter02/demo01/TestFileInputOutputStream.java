@@ -14,7 +14,7 @@ public class TestFileInputOutputStream {
 //        testFileInputStream("D:/Develop/demo/filetest/test.txt");
         testFileOutputStream("D:/Develop/demo/filetest/t1/testwrite.txt");
     }
-    /*
+    /**
     * @auther LiteWorm
     * @ClassName TestFileInputOutputStream
     * @FunctionName testFileInputStream
@@ -51,12 +51,12 @@ public class TestFileInputOutputStream {
     }
 
 
-    /*
+    /**
     * @auther LiteWorm
     * @ClassName TestFileInputOutputStream
     * @FunctionName testFileOutputStream
     * @Description @TODO
-    * @Date 20:54 2020/3/29
+    * @Date 0:11 2020/3/30
     * @Param [fileNam]
     * @return void
     **/
@@ -99,6 +99,15 @@ public class TestFileInputOutputStream {
 
     }
 
+    /**
+    * @auther LiteWorm
+    * @ClassName TestFileInputOutputStream
+    * @FunctionName checkFilePath
+    * @Description @TODO
+    * @Date 0:14 2020/3/30
+    * @Param [fileNam]
+    * @return void
+    **/
     private static void checkFilePath(String fileNam) {
         if(fileNam.indexOf("/") < 0 || fileNam.lastIndexOf("/") == fileNam.length() -1){
             System.out.println("不需要创建目录");
