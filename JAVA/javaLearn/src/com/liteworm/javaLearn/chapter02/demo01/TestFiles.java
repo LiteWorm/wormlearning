@@ -17,7 +17,10 @@ public class TestFiles {
 //        listFullPathTrees("D:/Develop/demo/filetest/t1/testwrite.txt");
         //测试使用目录为参数
 //        listFileTrees("D:/Develop/demo");
-        listFullPathTrees("D:/Develop/demo");
+//        listFullPathTrees("D:/Develop/demo");
+
+        listFileTrees("E:/ASP/GIT/LiteWorm");
+//      listFullPathTrees("E:/ASP/GIT/LiteWorm");
 
     }
 
