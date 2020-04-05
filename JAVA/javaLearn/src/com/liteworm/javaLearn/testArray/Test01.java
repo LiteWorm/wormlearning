@@ -1,43 +1,37 @@
 package com.liteworm.javaLearn.testArray;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 /**
  * @ClassName Test01
- * @Decription
- * 测试对象数组的排序
+ * @Decription @TOTO
  * @AUthor LiteWorm
- * @Date 2020/3/31 21:43
+ * @Date 2020/4/5 16:41
  * @Version 1.0
  **/
 public class Test01 {
 
     public static void main(String[] args) {
-        //定义数组报出Product产品对象
-        Product[] data = new Product[5];
+        int [] data = getArray();
+        System.out.println("原始数组：" + Arrays.toString(data));
+        swap(data, 0, 2);
+        System.out.println("调用swap后：" + Arrays.toString(data));
+        
+        newarray(data);
+        System.out.println("调用newarray后：" + Arrays.toString(data));
+    }
 
-        data[0] = new Product("lenovo", 6800);
-        data[1] = new Product("Dell", 7800);
-        data[2] = new Product("Huawei", 4800);
-        data[3] = new Product("Mac", 16800);
-        data[4] = new Product("xiaomi", 3800);
+    private static int[] getArray() {
+        return  new int[]{4,6,7,34,0};
+    }
 
-        System.out.println(Arrays.toString(data));
+    private static void newarray(int[] data) {
+        data = new int []{0,0,0,0,0};
+    }
 
-        //对数组排序，可以指定一个Comparator比较器
-        //Copmparator 后面<T>是一个方形，指定比较袁术的数据类型
-        Arrays.sort(data,new Comparator<Product>(){
-            //在匿名内部类中重写Comparator接口的抽象方法，指定比较规则
-
-
-            @Override
-            public int compare(Product o1, Product o2) {
-                //根据价格的升序
-                return o1.getPrice() - o2.getPrice(); //如果升序，第一个对象大于第二个对象返回正数，第一个对象小于第二个对象返回负数，两个对象相等返回0
-            }
-        });
-
-        System.out.println(Arrays.toString(data));
+    private static void swap(int[] data, int i, int i1) {
+        int tmp = data[i];
+        data[i]  = data[i1];
+        data[i1] = tmp;
     }
 }

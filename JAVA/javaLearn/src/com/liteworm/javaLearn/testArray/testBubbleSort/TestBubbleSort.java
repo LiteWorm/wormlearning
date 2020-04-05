@@ -1,9 +1,7 @@
-package com.liteworm.javaLearn.testArray;
+package com.liteworm.javaLearn.testArray.testBubbleSort;
 
 import java.util.Arrays;
 import java.util.Comparator;
-
-import static com.liteworm.javaLearn.testArray.MyBublleSort.bubblesort02;
 
 /**
  * @ClassName TestBubbleSort
