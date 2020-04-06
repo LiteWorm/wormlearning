@@ -10,7 +10,7 @@ import java.util.List;
  * @Date 2020/4/5 23:08
  * @Version 1.0
  **/
-public class TestListSet {
+public class TestListCollection {
     public void myListSet(){
         List<Product> products = new ArrayList<>();
         products.add(new Product("lenovo", 1000, 6800));

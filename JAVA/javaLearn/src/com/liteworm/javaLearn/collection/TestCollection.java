@@ -16,8 +16,8 @@ public class TestCollection {
         testTreeSet.myTreeSet();
         System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         //测试ListSet
-        TestListSet testListSet = new TestListSet();
-        testListSet.myListSet();
+        TestListCollection testListCollection = new TestListCollection();
+        testListCollection.myListSet();
 
         System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
         //测试HashSet
