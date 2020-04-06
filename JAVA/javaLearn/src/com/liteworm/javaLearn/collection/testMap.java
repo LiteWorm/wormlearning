@@ -15,7 +15,7 @@ public class testMap {
         myMap();
     }
     public static void myMap(){
-        Map<String, Product> products = new HashMap<>();
+        HashMap<String, Product> products = new HashMap<>();
         Product product = new Product("Computer", 3, 6800);
         products.put(product.getName(), product);
         product = new Product("Computer", 3, 7800);
@@ -30,6 +30,8 @@ public class testMap {
         if (product != null){
             System.out.println(product);
         }
+
+
 
 
 

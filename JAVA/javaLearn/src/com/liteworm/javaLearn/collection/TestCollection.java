@@ -17,7 +17,7 @@ public class TestCollection {
         System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         //测试ListSet
         TestListCollection testListCollection = new TestListCollection();
-        testListCollection.myListSet();
+        testListCollection.myArrayListCollection();
 
         System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
         //测试HashSet

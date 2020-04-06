@@ -1,5 +1,9 @@
 package com.liteworm.javaLearn.collection;
 
+import jdk.nashorn.internal.runtime.JSONListAdapter;
+import netscape.javascript.JSObject;
+
+import java.util.Iterator;
 import java.util.TreeSet;
 
 /**
@@ -25,6 +29,9 @@ public class TestTreeSet {
         products.add(new Product("huawe", 700, 9800));
         System.out.println("******************************************");
         System.out.println(products.toString().replaceAll("\\n,", ",\n"));
+
+        Iterator<Product> iterator = products.iterator();
+
     }
 
 
