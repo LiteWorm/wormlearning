@@ -1,4 +1,4 @@
-package com.liteworm.javaLearn.testArray;
+package com.liteworm.javaLearn.testArray.testBubbleSort;
 
 import java.util.Comparator;
 
@@ -36,6 +36,10 @@ public class Product {
         this.price = price;
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+    }
 
     @Override
     public String toString() {
