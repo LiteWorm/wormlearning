@@ -17,7 +17,10 @@ public class TestFiles {
 //        listFullPathTrees("D:/Develop/demo/filetest/t1/testwrite.txt");
         //测试使用目录为参数
 //        listFileTrees("D:/Develop/demo");
-        listFullPathTrees("D:/Develop/demo");
+//        listFullPathTrees("D:/Develop/demo");
+
+        listFileTrees("E:/ASP/GIT/LiteWorm");
+//      listFullPathTrees("E:/ASP/GIT/LiteWorm");
 
     }
 
@@ -38,7 +41,7 @@ public class TestFiles {
             System.out.println("请输入一个合法的路径，输入的路径错误：" + path);
             return;
         }
-        //检查是一个的目录还是一个文件
+        //检查是一个目录还是一个文件
         if (file.isDirectory()){
             listFileTreesByPath(path, 0, true);
         }else{
@@ -49,11 +52,6 @@ public class TestFiles {
 
 
     /**
-    * @auther LiteWorm
-    * @ClassName TestFiles
-    * @FunctionName listFileTrees
-    * @Description 列出文件树，文件只列出文件名
-    * @Date 23:54 2020/3/29
     * @Param [path]
     * @return void
     **/
