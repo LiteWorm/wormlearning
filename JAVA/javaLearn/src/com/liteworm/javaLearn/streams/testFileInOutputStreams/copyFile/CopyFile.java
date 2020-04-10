@@ -1,4 +1,4 @@
-package com.liteworm.javaLearn.steams.testFileInOutputStreams.copyFile;
+package com.liteworm.javaLearn.streams.testFileInOutputStreams.copyFile;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

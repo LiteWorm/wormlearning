@@ -1,6 +1,5 @@
-package com.liteworm.javaLearn.steams.testFileInOutputStreams.testFileIOutputStream;
+package com.liteworm.javaLearn.streams.testFileInOutputStreams.testFileIOutputStream;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 

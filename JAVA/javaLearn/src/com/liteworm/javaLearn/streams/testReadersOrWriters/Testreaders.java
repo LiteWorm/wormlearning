@@ -1,4 +1,4 @@
-package com.liteworm.javaLearn.steams.testReadersOrWriters;
+package com.liteworm.javaLearn.streams.testReadersOrWriters;
 
 import java.io.FileReader;
 import java.io.IOException;

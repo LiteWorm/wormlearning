@@ -1,9 +1,7 @@
-package com.liteworm.javaLearn.steams.testFileInOutputStreams.testFileInputStream;
+package com.liteworm.javaLearn.streams.testFileInOutputStreams.testFileInputStream;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Arrays;
 
 /**
  * @ClassName TestReadMutiBytesFromFIle
