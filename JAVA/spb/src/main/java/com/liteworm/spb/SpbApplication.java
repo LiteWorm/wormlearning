@@ -16,6 +16,7 @@ public class SpbApplication {
 
 	@GetMapping("/hello")
 	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
+		System.out.println("name=" + name);
 		return String.format("Hello %s!", name);
 	}
 }
