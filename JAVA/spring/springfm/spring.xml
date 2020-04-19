@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 声明Java对象，交给Spring创建和管理
+           class:类的全限定名称，不能是接口（Spirng使用反射创建对象）
+           id：自定义的对象名称，要求是唯一值，标识在Spring中的对象名称
+                通过这个名称可以从Spring中找到对象，获取对象
+            <bean> 等同于
+            TestService myService = new com.liteworm.service.TestServiceImpl();
+            对象是放入到Spring的容器（Map<id, 对象>）
+    -->
+    <bean id="myService2" class="com.liteworm.service.TestServiceImpl"/>
+
+</beans>
