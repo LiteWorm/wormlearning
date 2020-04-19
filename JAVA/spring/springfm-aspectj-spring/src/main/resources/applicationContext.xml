@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+        <!--声明目标类对象-->
+        <bean id = "someService" class="com.liteworm.service.impl.SomeServiceImpl"/>
+        <!--声明切面类对象-->
+        <bean id="aroundAdvice" class="com.liteworm.aspect.MyInteracptor"/>
+
+        <!--
+            声明proxyFactoryBean，创建代理对象
+                jdk中创建代理使用Proxy.newProxyInstance（目标对象, 接口, handler）
+        -->
+        <bean id="proxyObject" class="org.springframework.aop.framework.ProxyFactoryBean">
+            <!--指定目标类对象-->
+            <property name="target" ref="someService"/>
+            <!--目标类实现的接口-->
+            <property name="proxyInterfaces"  value="com.liteworm.service.SomeService"/>
+            <!--在家的功能的类，切面类-->
+            <property name="interceptorNames" value="aroundAdvice"/>
+        </bean>
+</beans>
