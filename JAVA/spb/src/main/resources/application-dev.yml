@@ -1,0 +1,8 @@
+# Server settings
+server:
+  port: '18090'
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: '2000'
+    acceptCount: '2000'
+    connectionTimeout: '10000'
