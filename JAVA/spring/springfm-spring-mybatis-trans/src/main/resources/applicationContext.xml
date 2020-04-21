@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        读取配置文件
+            location:指定属性配置文件的路径
+            "classpath:"：关键字，标识类路径，也就是class文件所在的目录
+    -->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <!--声明数据源DataSource-->
+    <bean id="myDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+<!--        &lt;!&ndash;数据库的uri&ndash;&gt;-->
+<!--        <property name="url" value="jdbc:mysql://localhost:3306/springdb"/>-->
+<!--        &lt;!&ndash;用户名&ndash;&gt;-->
+<!--        <property name="username" value="spring"/>-->
+<!--        &lt;!&ndash;密码&ndash;&gt;-->
+<!--        <property name="password" value="123456"/>-->
+
+
+            <!--读取配置文件中的属性-->
+            <!--数据库的uri-->
+            <property name="url" value="${jdbc.url}"/>
+            <!--用户名-->
+            <property name="username" value="${jdbc.username}"/>
+            <!--密码-->
+            <property name="password" value="${jdbc.password}"/>
+
+     </bean>
+
+    <!--声明SqlSessionFactoryBean，创建SqlSessionFactory对象-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" >
+        <!--指定数据源-->
+        <property name="dataSource" ref="myDataSource"/>
+        <!--指定主配置文件-->
+        <property name="configLocation" value="classpath:mybatis.xml"/>
+    </bean>
+
+    <!--声明MyBatis的扫描器，创建Doa接口的实现类对象-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--指定SqlSessionFactory对象，能够获取SqlSession-->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <!--指定Dao接口的包名，框架会吧这个包中的所有接口一次创建出Dao对象-->
+        <property name="basePackage" value="com.liteworm.dao"/>
+    </bean>
+
+    <!--声明service-->
+    <bean id="buyGoodsService" class="com.liteworm.service.impl.BuyGoodsIml">
+        <property name="saleDao" ref="saleDao"/>
+        <property name="goodsDao" ref="goodsDao"/>
+    </bean>
+</beans>
