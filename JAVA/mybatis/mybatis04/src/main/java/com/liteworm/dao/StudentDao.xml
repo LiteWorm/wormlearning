@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liteworm.dao.StudentDao">
+
+    <select id="select16" resultMap="stuMap">
+        select id, name, age from student
+    </select>
+
+    <!--
+        id:resultMap标签对的唯一标识
+           将来在使用到该resultMap标签的时候，使用id来招到这素标签
+        type：指定一个类型，与数据库表一一对应，简历器表字段和雷属性的名字一一匹配的关系
+    -->
+    <resultMap id="stuMap" type="Student">
+
+        <!--
+            id标签：用来配置主键的对应关系
+            result标签：用来配置普通字段对应关系的
+                property属性：配置的是类中的属性名
+                column属性：配置的是表中的字段名
+        -->
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <select id="select14" resultType="map">
+        select * from student
+    </select>
+
+    <select id="select12" resultType="int">
+        select count(*) from student
+    </select>
+
+    <select id="select11" resultType="String">
+        select name from student
+    </select>
+
+    <select id="select10" resultType="String">
+        select name from student where id = #{id}
+    </select>
+
+    <select id="select9" resultType="Student">
+        select id,name,age from student where name like'%' #{name} '%'
+    </select>
+
+    <select id="select8" resultType="Student">
+        select id, name, age from student where name like #{name}
+    </select>
+
+    <select id="select7" resultType="Student">
+        select id, name, age from student where name like '%${value}%'
+    </select>
+
+    <select id="select6" resultType="Student">
+        select id,name,age from student where name = '${value}'
+    </select>
+
+
+    <!--
+    如果为sql语句传递的参数类型为Map引用类型
+    则#{}中的标识符必须是Map的key
+-->
+    <select id="select5" parameterType="map" resultType="Student">
+        select id,name,age from student where name = #{name} and age = #{age}
+    </select>
+
+
+    <!--
+        如果为sql语句传递的参数类型为domain引用类型
+        则#{}中的标识符必须是domain类中的属性名
+    -->
+    <select id="select4" parameterType="Student" resultType="Student">
+          select id,name,age from student where name=#{name} and age = #{age}
+    </select>
+
+
+<!--    <select id="select3"resultType="Student">-->
+<!--        select id,name,age from student where name=#{} and age = #{age}-->
+<!--    </select>-->
+
+    <!--
+        使用简单类型（8种基本数据类型+String）为参数
+        在#{}中的标识符可以随意写
+    -->
+
+    <select id="select2" resultType="Student">
+        select id, name, age from student where age = #{age}
+    </select>
+
+    <select id="select1" parameterType="String" resultType="Student">
+        select id, name, age from student where id = #{id}
+    </select>
+
+<!--    <select id="getById" parameterType="String" resultType="stu">-->
+    <select id="getById" parameterType="String" resultType="Student">
+        select id,name,age from student where id = #{id}
+    </select>
+
+    <insert id="save">
+        insert  into student(id, name, age) values (#{id}, #{name}, #{age})
+    </insert>
+
+    <select id="getAll" resultType="com.liteworm.domain.Student">
+        select id,name,age from student
+    </select>
+</mapper>

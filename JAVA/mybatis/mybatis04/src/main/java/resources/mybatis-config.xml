@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="db.properties"/>
+
+        <!--
+            设置与数据库交互的华宁
+            可以在此处配置耳机缓存，配置延迟加载策略等
+            目的是为了更加有效地查询表中的记录
+
+            实际项目中，settings基本没用
+        -->
+<!--    <settings>-->
+<!--        <setting name="" value=""/>-->
+<!--    </settings>-->
+
+
+    <!--
+        为mapper映射文件的domain起别名
+    -->
+    <typeAliases>
+        <!--
+            方式1：
+                为指定的类分别起别名，笔名的命名自定义
+                    type:对应要取别名的domain 填 包.类名称
+                    alias：别名的名字
+        -->
+<!--        <typeAlias type="com.liteworm.domain.Student" alias="stu">-->
+        <!--
+            方式2：
+                使用package标签批量起别名
+                别名是MyBatis默认确认，别名为类名（类名的字母不区分大小写）
+                    name：指定一个包结构，表示在该包下，所有的domain自动起好别名
+        -->
+        <package name="com.liteworm.domain"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <!-- 配置数据库连接信息 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+<!--                <property name="url" value="jdbc:mysql://10.12.8.196:3306/rwreport"/>-->
+<!--                <property name="username" value="rwreport"/>-->
+<!--                <property name="password" value="2014$aspire"/>-->
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!--
+            方式1：
+                使用resource属性，指定马婆婆而映射文件
+        -->
+<!--        <mapper resource="com/liteworm/dao/StudentDao.xml"/>-->
+
+        <!--
+            方式2：
+                使用class属性，知道dao层接口的全路径
+        -->
+<!--        <mapper class="com.liteworm.dao.StudentDao"/>-->
+
+        <!--
+            方式3：
+                使用package批量注册：
+                    name属性：指向dao层的包，表示在该dao包下，所有的mapper文件自动注册
+        -->
+        <package name="com.liteworm.dao"/>
+    </mappers>
+</configuration>
