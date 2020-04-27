@@ -3,6 +3,7 @@ package com.liteworm;
 import com.liteworm.dao.StudentDao;
 import com.liteworm.domain.Student;
 import com.liteworm.utils.SqlSessionUtil;
+import com.liteworm.vo.StudentAndClassroomVo;
 
 import java.util.HashMap;
 import java.util.List;
@@ -106,10 +107,50 @@ public class Test2 {
         }*/
 
         //16.测试resultMap
-        List<Student> ss = studentDao.select16();
+/*        List<Student> ss = studentDao.select16();
         for(Student s : ss){
             System.out.println(s);
+        }*/
+
+
+        //测试：动态sql where标签+if标签
+/*        Student s = new Student();
+        s.setName("p");
+        s.setAddress("s");
+        List<Student> ss = studentDao.select17(s);
+        for(Student s1 : ss){
+            System.out.println(s1);
+        }*/
+
+        //18.测试：动态sql foreach标签
+/*        String[] strArr = {"1", "2", "3", "4"};
+        List<Student> ss = studentDao.select18(strArr);
+        for(Student s1 : ss){
+            System.out.println(s1);
+        }*/
+
+        //19.测试：sql片段
+/*        Student student = studentDao.select19("1");
+        System.out.println(student);*/
+
+        //20.测试多表联查
+/*        List<Map<String, Object>> sList = studentDao.select20();
+        for(Map<String, Object> map : sList){
+            Set<String> set = map.keySet();
+            for(String s : set){
+                System.out.println(s + ":" + map.get(s));
+            }
+            System.out.println("**************************");
+
+        }*/
+
+        //21.测试：多表联查 使用Vo
+        List<StudentAndClassroomVo> studentAndClassroomVos = studentDao.select21();
+        for(StudentAndClassroomVo s : studentAndClassroomVos){
+            System.out.println(s);
         }
+
+
 
     }
 }

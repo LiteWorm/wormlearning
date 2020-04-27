@@ -4,6 +4,73 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liteworm.dao.StudentDao">
 
+    <select id="select21" resultType="com.liteworm.vo.StudentAndClassroomVo">
+        select s.id sid, s.name sname, s.name sname, s.address saddress, c.id cid, c.name cname
+          from student s join classroom c on s.classid = c.id
+    </select>
+
+
+    <select id="select20" resultType="map">
+        select s.id id, s.name sname, c.name cname  from student s join classroom c on s.classid = c.id
+    </select>
+
+    <sql id="sql1">
+        <!--
+            使用sql标签只做sql片段
+                sql片段的作用是用来代替sql语句中的代码
+                如果mapper映射文件中的sql语句是默写代码出现了大量的重复，可以使用sql片段来代替
+
+                id:sql片段的唯一标识，捡来只懂啊sql片段使用id来警醒定位
+        -->
+        select  id, name ,age, address from student
+    </sql>
+
+
+
+    <select id="select19" resultType="Student">
+        <include refid="sql1"/> where id = #{id}
+    </select>
+
+
+    <select id="select18" resultType="Student">
+        select id, name, age, address from student
+            where id in
+            <!--
+                foreach标签：用来遍历传递来的数组参数
+                collection：标识传递参数的类型
+                            array：数组
+                            list：集合
+                 item：每一次遍历出来的元素，在使用该元素的时候，需要套用在#{}中
+                 open:拼接循环开始符号
+                 close：拼接循环的结束符号
+                 separator：元素与元素知己恩的分隔符
+            -->
+            <foreach collection="array"  item="id" open="(" close=")" separator=",">
+                #{id}
+            </foreach>
+    </select>
+
+    <select id="select17" resultType="Student">
+        select  id, name, age, address from student
+        <!--
+            where标签：
+                当where标签使用的时候，必须搭配where标签对重的if标签来使用
+                通过if标签的判断，如果有查询条件，则展现where关键字，如果没有查询条件则不展示where关键字
+                where 标签会自动屏蔽第一个链接符
+        -->
+        <where>
+            <if test="name != null and name !=''">
+                and name like '%' #{name} '%'
+            </if>
+            <if test="address !=null and address != ''">
+                and  address like '%' #{address} '%'
+            </if>
+
+        </where>
+
+    </select>
+
+
     <select id="select16" resultMap="stuMap">
         select id, name, age from student
     </select>

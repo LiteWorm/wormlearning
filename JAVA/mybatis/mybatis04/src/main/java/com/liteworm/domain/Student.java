@@ -13,6 +13,7 @@ public class Student {
     private String id;
     private String name;
     private Integer age;
+    private String address;
 
 
     public Student() {
@@ -40,14 +41,21 @@ public class Student {
         this.name = name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     @Override
     public String toString() {
@@ -55,6 +63,7 @@ public class Student {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +
+                ", address='" + address + '\'' +
                 '}';
     }
 
@@ -63,9 +72,7 @@ public class Student {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return age == student.age &&
-                Objects.equals(id, student.id) &&
-                Objects.equals(name, student.name);
+        return Objects.equals(id, student.id);
     }
 
     @Override

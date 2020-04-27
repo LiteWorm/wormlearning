@@ -1,6 +1,7 @@
 package com.liteworm.dao;
 
 import com.liteworm.domain.Student;
+import com.liteworm.vo.StudentAndClassroomVo;
 
 import java.util.List;
 import java.util.Map;
@@ -45,4 +46,14 @@ public interface StudentDao {
     List<Map<String, Object>> select14();
 
     List<Student> select16();
+
+    List<Student> select17(Student s);
+
+    List<Student> select18(String[] strArr);
+
+    Student select19(String s);
+
+    List<Map<String, Object>> select20();
+
+    List<StudentAndClassroomVo> select21();
 }
