@@ -1,0 +1,36 @@
+@startuml
+
+abstract class AbstractList{
+void test();
+void test2();
+}
+class Test{
+public static String TEST = "test";
+private String name;
+}
+abstract AbstractCollection
+interface List{
+void add();
+void delete();
+}
+interface Collection
+
+List <|-- AbstractList
+Collection <|-- AbstractCollection
+
+Collection <|- List
+AbstractCollection <|- AbstractList
+AbstractList <|-- ArrayList
+
+class ArrayList {
+Object[] elementData
+size()
+}
+
+enum TimeUnit {
+DAYS
+HOURS
+MINUTES
+}
+
+@enduml

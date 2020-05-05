@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <!--
+        注册SpringMVC的核心对象：DispatchServlet（中央调度器）
+    -->
+    <servlet>
+        <servlet-name>myweb</servlet-name>
+        <!--前端控制器-->
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+
+        <!--指定springMVC配置文件-->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:springmvc.xml</param-value>
+        </init-param>
+
+        <!--在服务器启动的时候，创建servlet对象-->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>myweb</servlet-name>
+        <!--
+            url-pattern:表示把请求交给指定的Servlet对象。只有把请求交给DispatcherServlet
+            这样的请求才能使用springmvc框架处理。
+            使用DispatcherServlet接收用户的请求。
+            在框架中url-pattern:
+                1.口站名：*.xxx,xxx就是自定一的扩展名。例如*.do,*.action,*.mvc等，不能使用*.jsp
+                2.使用斜杠"/"
+        -->
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+</web-app>
