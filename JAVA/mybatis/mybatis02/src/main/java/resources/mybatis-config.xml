@@ -11,9 +11,9 @@
             <!-- 配置数据库连接信息 -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/springdb"/>
-                <property name="username" value="spring"/>
-                <property name="password" value="123456"/>
+                <property name="url" value="jdbc:mysql://10.12.8.196:3306/rwreport"/>
+                <property name="username" value="rwreport"/>
+                <property name="password" value="2014$aspire"/>
             </dataSource>
         </environment>
     </environments>

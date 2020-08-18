@@ -19,7 +19,7 @@ public class TestFiles {
 //        listFileTrees("D:/Develop/demo");
 //        listFullPathTrees("D:/Develop/demo");
 
-        listFileTrees("E:/ASP/GIT/LiteWorm");
+        listFileTrees("E:\\ASP\\GIT\\RWBASE");
 //      listFullPathTrees("E:/ASP/GIT/LiteWorm");
 
     }
@@ -43,10 +43,10 @@ public class TestFiles {
         }
         //检查是一个目录还是一个文件
         if (file.isDirectory()){
-            listFileTreesByPath(path, 0, true);
+            listFileTreesByPath(path, 0, false);
         }else{
-            System.out.println(file.getParentFile().getPath());
-            System.out.println("\t|_" + file.getPath());
+     /*       System.out.println(file.getParentFile().getPath());
+            System.out.println("\t|_" + file.getPath());*/
         }
     }
 
@@ -66,8 +66,8 @@ public class TestFiles {
         if (file.isDirectory()){
             listFileTreesByPath(path, 0, false);
         }else{
-            System.out.println(file.getParentFile().getPath());
-            System.out.println("\t|_" + file.getName());
+//            System.out.println(file.getParentFile().getPath());
+//            System.out.println("\t|_" + file.getName());
         }
     }
 
@@ -97,14 +97,14 @@ public class TestFiles {
             }
             if (file1.isDirectory()) {
                 newdepth = depth + 1;
-                System.out.println(s2 + "|_" + file1.getPath());
+                System.out.println(s2 + "|_" + file1.getName());
                 listFileTreesByPath(file1.getPath(), newdepth, isFullPath);
             }else {
-                if (isFullPath){
+/*                if (isFullPath){
                     System.out.println(s2 + "|_" + file1.getPath());
                 }else{
                     System.out.println(s2 + "|_" + file1.getName());
-                }
+                }*/
             }
 
         }
