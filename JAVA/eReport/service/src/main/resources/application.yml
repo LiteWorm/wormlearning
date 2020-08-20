@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    username: 10.12.8.196
+    password: rwxreport
+    #//MySQL 8.x版本会有时区验证，默认的是美国的时间，在中国启动的时候会报错，所以加上serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/rwxreport?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: mysqlDatasource
+    type: com.alibaba.druid.pool.DruidDataSource
+    max-active: 20
+    filters: stat,wall,logbak
+    initial-size: 5
+    min-idle: 5
+    max-wait: 60000
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 300000
+    validation-query: SELECT 1 FROM DUAL
+    test-while-idle: true
+    test-on-borrow: false
+    test-on-return: false
+    #//这里的账号密码不是数据库的账号密码，而是后台登陆druid页面的账号密码
+    druid:
+      username: 123
+      password: 123
+      logSlowSql: true
+  #//告诉springboot加载mapper文件
+mybatis:
+  mapper-locations: classpath:com/liteworm/ereport/mapper/*.xml

@@ -20,16 +20,16 @@
             </pattern>
         </encoder>
     </appender>
-    <root level="error">
+<!--    <root level="error">
         <appender-ref ref="console"/>
-        <!-- <appender-ref ref="file"/>-->
+        &lt;!&ndash; <appender-ref ref="file"/>&ndash;&gt;
     </root>
-<!--    <root level="info">
+    <root level="info">
         <appender-ref ref="console"/>
        &lt;!&ndash; <appender-ref ref="file"/>&ndash;&gt;
     </root>-->
-<!--    <root level="debug">
+    <root level="debug">
         <appender-ref ref="console"/>
-        &lt;!&ndash; <appender-ref ref="file"/>&ndash;&gt;
-    </root>-->
+        <!-- <appender-ref ref="file"/>-->
+    </root>
 </configuration>
