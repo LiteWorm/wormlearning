@@ -15,6 +15,10 @@
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
+        <mybatis_version>3.5.5</mybatis_version>
+        <mybatis-spring_version>2.0.5</mybatis-spring_version>
+        <druid_version>1.1.23</druid_version>
+        <mysql_connector_version>8.0.21</mysql_connector_version>
     </properties>
     <dependencies>
         <dependency>
@@ -35,6 +39,31 @@
             <artifactId>spring-web</artifactId>
             <version>5.2.8.RELEASE</version>
         </dependency>
+
+        <!-- mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis_version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis-spring_version}</version>
+        </dependency>
+        <!-- druid -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid_version}</version>
+        </dependency>
+        <!-- mysql connector-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql_connector_version}</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
