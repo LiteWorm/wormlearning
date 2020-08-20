@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserAccessController {
-    private static final Logger log = LoggerFactory.getLogger(DemoController.class);
+    private static final Logger log = LoggerFactory.getLogger(UserAccessController.class);
 
     @PostMapping("/login")
     public String userLogin(){
