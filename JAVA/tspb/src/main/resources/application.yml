@@ -1,0 +1,47 @@
+server:
+    servlet:
+      context-path: "/tspb"
+    port: 18080
+    tomcat:
+      uri-encoding: UTF-8
+
+
+
+student:
+  stu-id: 5
+  stu-name: jerry
+  graduated: false
+  subject:
+    - java
+    - php
+    - mysql
+  birthday: 1990-05-01 23:21:00
+  teachers:
+    java: tom
+    mysql: tony
+    web: bob
+  address:
+    province: 广东
+    city: 深圳
+    street: 粤海街道
+
+test.value.configeration: "测试@Value注解"
+
+#logging:
+#  level:
+#   root: debug
+logging:
+  level:
+    com.liteworm.tsp: debug
+    com.liteworm.tspb.dao: debug
+spring:
+  datasource:
+    name: rwxreport
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://10.12.8.196:3306/rwxreport?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    username: rwxreport
+    data-password: rwxreport
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mybatis:
+    mapper-location: classpath*:/mybatis/mapper/*Mapper.xml
+
