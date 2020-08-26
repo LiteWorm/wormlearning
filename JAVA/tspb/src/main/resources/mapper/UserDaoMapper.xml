@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liteworm.tspb.dao.UserDao">
+    <resultMap id="UserDaoMap" type=""
+    <select id="selectAll" resultType="com.liteworm.tspb.entity.User" >
+        select *  from   user
+    </select>
+    <update id="addUser" parameterType="com.liteworm.tspb.entity.User">
+        insert into
+          user
+            (
+              account,password,user_name,mobile,email,status,create_time,creator,update_time,modifier,remark
+            )
+        values
+          (
+             #{account},#{passWord},#{userName},#{mobile},#{email},#{status},#{createTime},#{creator},#{updateTime},#{modifier},#{remark}
+          )
+    </update>
+</mapper>

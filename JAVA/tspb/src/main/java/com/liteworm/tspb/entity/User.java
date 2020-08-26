@@ -1,6 +1,7 @@
-package com.liteworm.tspb.com.liteworm.tspb.entity;
+package com.liteworm.tspb.entity;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -13,8 +14,10 @@ public class User {
     private String mobile;
     private String email;
     private String status;
+   // @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     private String creator;
+   // @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
     private String modifier;
     private String remark;

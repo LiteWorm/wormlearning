@@ -1,4 +1,4 @@
-package com.liteworm.tspb.com.liteworm.tspb.entity;
+package com.liteworm.tspb.entity;
 
 import lombok.Data;
 

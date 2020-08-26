@@ -27,21 +27,83 @@ student:
 
 test.value.configeration: "测试@Value注解"
 
-#logging:
-#  level:
-#   root: debug
+
 logging:
   level:
-    com.liteworm.tsp: debug
+    root: info
+    #com.liteworm.tsp: debug
     com.liteworm.tspb.dao: debug
 spring:
   datasource:
-    name: rwxreport
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://10.12.8.196:3306/rwxreport?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
-    username: rwxreport
-    data-password: rwxreport
+    url: "jdbc:mysql://10.12.8.196:3306/rwreport?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8"
+    username: rwreport
+    password: 2014$aspire
     driver-class-name: com.mysql.cj.jdbc.Driver
-  mybatis:
-    mapper-location: classpath*:/mybatis/mapper/*Mapper.xml
+    #druid配置
+    druid:
+      #初始连接数
+      initial-size: 5
+      #最大活动链接
+      max-active: 10
+      #从池中去连接（没有限制连接）的最大等待时间，-1标识无限等待
+      max-wait: 60000
+      #最小闲置数，小于min-idle连接池会主动创建新的链接
+      min-idle: 5
+      #清理线程启动的间隔时间，当线程池中没有可用的链接启动清理线程
+      time-between-eviction-runs-millis: 60000
+      #清理线程保持闲置最小时间
+      min-evictable-idle-time-millis: 300000
+      #用于校验连接
+      validation-query: SELECT 1
+      #请求链接是是否校验，比较消耗性能，一般设置为false
+      test-on-borrow: false
+      #归还链接是是否校验，比较消耗性能，一般设置为false
+      test-on-return: false
+      #清理线程通过validation-query来校验连接是否正常，如果不正常姜葱连接池中移除
+      test-while-idle: true
+      #存储相同逻辑的sql到连接池的缓存中
+      pool-prepared-statements: true
+      ## filters:stat, wall监控web的statement（sql）,以及sql注入的wall
+      ##关闭如上配置，可以采用自定义的filter
+      filter:
+        stat:
+          #监控状态-->stat
+          enabled: true
+          db-type: mysql
+          #记录超过指定时间的sql到日志中
+          log-slow-sql: true
+          slow-sql-millis: 2000
+        wall:
+          #防火墙-->wall
+          enabled: true
+          db-type: mysql
+          config:
+            #禁止删除
+            delete-allow: false
+            #禁止删除表
+            drop-table-allow: false
+      web-stat-filter:
+        #开启架空uri,默认false
+        enabled: true
+        #添加过滤规则
+        url-pattern: /*
+        #忽略过滤
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid"
+      stat-view-servlet:
+        #开启视图管理界面，默认false
+        enabled: true
+        #视图管理界面uri
+        url-pattern: /druid/*
+        #帐号
+        login-username: druid
+        #密码
+        login-password: 123456
+        #白名单
+        #allow: 127.0.0.1
+        #黑名单
+        #deny:
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
 

@@ -1,6 +1,6 @@
 package com.liteworm.tspb;
 
-import com.liteworm.tspb.com.liteworm.tspb.entity.Student;
+import com.liteworm.tspb.entity.Student;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
