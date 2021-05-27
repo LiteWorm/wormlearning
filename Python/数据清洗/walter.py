@@ -2,8 +2,9 @@ import numpy as np
 import pandas as pd
 import os
 
+
 # 数据读取
-os.chdir('D:\Aspire\git\eadlon\wormlearning\Python\数据清洗\data')
+os.chdir('./data')
 wtdata = pd.read_csv('train.csv')
 holydata = pd.read_csv('holy_data.txt')
 
@@ -68,3 +69,36 @@ B_2018 = B_2018[~(B_2018['date'].isnull())]
 del B_2018['A_Factory']
 print(B_2018.head(10))
 print(B_2018.info())
+
+
+# 2019年数据
+# A厂
+A_2019 = wtusage.where((wtusage['date'] < pd.to_datetime('2020-01-01', format='%Y-%m-%d', errors='coerce')) &
+                       (wtusage['date'] >= pd.to_datetime('2019-01-01', format='%Y-%m-%d', errors='coerce')))
+A_2019 = A_2019[~(A_2019['date'].isnull())]
+del A_2019['B_Factory']
+print(A_2019.head(10))
+print(A_2019.info())
+
+# B厂
+B_2019 = wtusage.where((pd.to_datetime('2020-01-01', format='%Y-%m-%d', errors='coerce') > wtusage['date']) &
+                       (wtusage['date'] >= pd.to_datetime('2019-01-01', format='%Y-%m-%d', errors='coerce')))
+B_2019 = B_2019[~(B_2019['date'].isnull())]
+del B_2019['A_Factory']
+print(B_2019.head(10))
+print(B_2019.info())
+
+
+# 2020年数据
+# A厂
+A_2020 = wtusage.where(wtusage['date'] >= pd.to_datetime('2020-01-01', format='%Y-%m-%d', errors='coerce'))
+A_2020 = A_2020[~(A_2020['date'].isnull())]
+del A_2020['B_Factory']
+print(A_2020.head(10))
+print(A_2020.info())
+# B厂
+B_2020 = wtusage.where(wtusage['date'] >= pd.to_datetime('2020-01-01', format='%Y-%m-%d', errors='coerce'))
+B_2020 = B_2020[~(B_2020['date'].isnull())]
+del B_2020['A_Factory']
+print(B_2020.head(10))
+print(B_2020.info())
