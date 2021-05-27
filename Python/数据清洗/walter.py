@@ -1,4 +1,4 @@
-import null as null
+import numpy as np
 import pandas as pd
 import os
 
@@ -50,5 +50,21 @@ wtusage.loc[wtusage['holy_len'].isnull(), 'holy_len'] = 0
 wtusage.loc[wtusage['holy_day'].isnull(), 'holy_day'] = 0
 wtusage.loc[wtusage['holy_type'].isnull(), 'holy_type'] = 0
 
-print(wtusage)
+print(wtusage.head(10))
 print(wtusage.info())
+
+# 数据拆分
+# 2018年数据
+# A厂
+A_2018 = wtusage.where(wtusage['date'] < pd.to_datetime('2019-01-01', format='%Y-%m-%d', errors='coerce'))
+A_2018 = A_2018[~(A_2018['date'].isnull())]
+del A_2018['B_Factory']
+print(A_2018.head(10))
+print(A_2018.info())
+
+# B厂
+B_2018 = wtusage.where(wtusage['date'] < pd.to_datetime('2019-01-01', format='%Y-%m-%d', errors='coerce'))
+B_2018 = B_2018[~(B_2018['date'].isnull())]
+del B_2018['A_Factory']
+print(B_2018.head(10))
+print(B_2018.info())
