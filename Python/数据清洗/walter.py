@@ -116,13 +116,14 @@ plt.rcParams['axes.unicode_minus'] = False
 # plt.show()
 
 
-plt.plot(pltdata[:, 0], pltdata[:, 1],   '-*')
-plt.xlabel("用水量")
-plt.show()
+# plt.plot(pltdata[:, 0], pltdata[:, 1],   '-*')
+# plt.xlabel("用水量")
+# plt.show()
 
 
 pltwtdata = np.array(wtdata)
 print(pltwtdata)
-plt.plot(pltwtdata[:, 0], pltwtdata[:, 1], '-*')
+plt.plot(pltwtdata[:, 2], pltwtdata[:, 1], '-*')
+plt.plot(pltwtdata[:, 2], pltwtdata[:, 0], '-.')
 plt.xlabel("用水量")
 plt.show()
