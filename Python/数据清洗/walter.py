@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import os
+import matplotlib.pyplot as plt
 
 
 # 数据读取
@@ -96,9 +97,32 @@ A_2020 = A_2020[~(A_2020['date'].isnull())]
 del A_2020['B_Factory']
 print(A_2020.head(10))
 print(A_2020.info())
+
 # B厂
 B_2020 = wtusage.where(wtusage['date'] >= pd.to_datetime('2020-01-01', format='%Y-%m-%d', errors='coerce'))
 B_2020 = B_2020[~(B_2020['date'].isnull())]
 del B_2020['A_Factory']
 print(B_2020.head(10))
 print(B_2020.info())
+
+pltdata = np.array(A_2018)
+pltdataB = np.array(A_2018)
+print(pltdata)
+
+plt.rcParams['font.sans-serif'] = 'simhei'
+plt.rcParams['axes.unicode_minus'] = False
+# plt.pie(pltdata[:, 1], data=pltdata[:, 0], autopct="%.1ff%%")
+# plt.legend(pltdata[:, 0], loc="upper left")
+# plt.show()
+
+
+plt.plot(pltdata[:, 0], pltdata[:, 1],   '-*')
+plt.xlabel("用水量")
+plt.show()
+
+
+pltwtdata = np.array(wtdata)
+print(pltwtdata)
+plt.plot(pltwtdata[:, 0], pltwtdata[:, 1], '-*')
+plt.xlabel("用水量")
+plt.show()
