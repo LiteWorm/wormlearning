@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
-
+import xgboost as xgb
 
 # 数据读取
 os.chdir('./data')
@@ -33,6 +33,10 @@ holydata['holy_type'] = holydata['holy_type'].astype(int, copy=True, errors='rai
 # 删除多余列
 wtdata.drop('日期', axis=1, inplace=True)
 holydata.drop('日期', axis=1, inplace=True)
+
+
+wtdata['dayofyear'] = wtdata['date'].dt.dayofyear
+wtdata['dayofweek'] = wtdata['date'].dt.dayofweek
 
 print(wtdata.head(10))
 print(wtdata.info())
@@ -109,7 +113,7 @@ pltdata = np.array(A_2018)
 pltdataB = np.array(A_2018)
 print(pltdata)
 
-plt.rcParams['font.sans-serif'] = 'simhei'
+plt.rcParams['font.sans-serif'] = 'Hei'
 plt.rcParams['axes.unicode_minus'] = False
 # plt.pie(pltdata[:, 1], data=pltdata[:, 0], autopct="%.1ff%%")
 # plt.legend(pltdata[:, 0], loc="upper left")
