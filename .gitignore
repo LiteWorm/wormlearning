@@ -5,7 +5,7 @@ target/
 !**/src/test/**/target/
 ### MAC OS ###
 .DS_Store
-
+!**/.DS_Store/
 
 ### STS ###
 .apt_generated
