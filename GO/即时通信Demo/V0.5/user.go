@@ -52,12 +52,12 @@ func (this *User) Offline() {
 //用户消息
 func (this *User) DoMessage(msg string) {
 	if msg == "who" {
-		this.server.OnlineMap.Lock()
+		//this.server.OnlineMap.Lock()
 		for _, user := range this.server.OnlineMap {
 			olMsg := "[" + user.Addr + "]" + user.Name + ":在线...\n"
 			this.conn.Write([]byte(olMsg))
 		}
-		this.server.OnlineMap.Unlock()
+		//this.server.OnlineMap.Unlock()
 	} else {
 		this.server.BroadCast(this, msg)
 	}
