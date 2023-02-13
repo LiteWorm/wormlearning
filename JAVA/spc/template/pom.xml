@@ -19,7 +19,7 @@
         <java.version>17</java.version>
         <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
         <spring-cloud-starter.version>4.0.1</spring-cloud-starter.version>
-        <spring.boot.version>2.3.12.RELEASE</spring.boot.version>
+        <spring.boot.version>2.5.12</spring.boot.version>
         <spring-cloud-starter-bootstrap.version>4.0.1</spring-cloud-starter-bootstrap.version>
         <spring-cloud-starter-alibaba-nacos.version>2.2.9.RELEASE</spring-cloud-starter-alibaba-nacos.version>
         <logback.version>1.2.11</logback.version>
