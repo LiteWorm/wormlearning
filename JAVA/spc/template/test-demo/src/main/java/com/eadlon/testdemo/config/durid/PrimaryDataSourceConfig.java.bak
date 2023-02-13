@@ -1,0 +1,80 @@
+package com.eadlon.testdemo.config.durid;
+
+import com.baomidou.mybatisplus.core.MybatisConfiguration;
+import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Scope;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+
+import javax.annotation.Resource;
+import javax.sql.DataSource;
+
+/**
+ * 主数据源配置
+ *
+ * @author rr
+ * @date 2022/05/09
+ */
+@Configuration
+@MapperScan(basePackages = {"com.eadlon.testdemo.mapper"}, sqlSessionFactoryRef = "sqlSessionFactory")
+public class PrimaryDataSourceConfig {
+
+    @Resource
+    private MybatisPlusInterceptor mybatisPlusInterceptor;
+
+    @Value("${mybatis-plus.mapper-locations}")
+    private String locationPattern;
+
+    @Value("${mybatis-plus.type-aliases-package}")
+    private String typeAliasesPackage;
+
+    @Bean
+    @Scope(value = "prototype")
+    @ConfigurationProperties(prefix = "mybatis-plus.configuration")
+    public MybatisConfiguration getCfg() {
+        return new MybatisConfiguration();
+    }
+
+
+    @Bean(name = "dataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.druid")
+    @Primary
+    public DataSource dataSource() {
+        return DataSourceBuilder.create().build();
+    }
+
+    @Bean(name = "sqlSessionFactory")
+    @Primary
+    public SqlSessionFactory sqlSessionFactory(@Qualifier("dataSource") DataSource dataSource) throws Exception {
+        MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
+        bean.setDataSource(dataSource);
+        bean.setPlugins(mybatisPlusInterceptor);
+        bean.setConfiguration(getCfg());
+        bean.setTypeAliasesPackage(typeAliasesPackage);
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(locationPattern));
+        return bean.getObject();
+    }
+
+    @Bean(name = "transactionManager")
+    @Primary
+    public DataSourceTransactionManager transactionManager(@Qualifier("dataSource") DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
+    }
+
+    @Bean(name = "sqlSessionTemplate")
+    @Primary
+    public SqlSessionTemplate sqlSessionTemplate(@Qualifier("sqlSessionFactory") SqlSessionFactory sqlSessionFactory) {
+        return new SqlSessionTemplate(sqlSessionFactory);
+    }
+}
