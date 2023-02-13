@@ -1,0 +1,73 @@
+spring:
+  application:
+    name: template-nacos-demo
+  cloud:
+    config:
+      allow-override: false # 为true 远程配置优先级最低，本地配置可覆盖远程
+      override-none: false #为true不覆盖本地
+      overrideSystemProperties: true # 为true，远程配置应覆盖本地配置
+    nacos:
+      # nacos用户名
+      username: nacos_test
+      # nacos用户密码
+      password: VGsvfS4it2^ovfsl
+      # nacos服务器地址
+      #server-addr: 10.12.3.50:10033,10.12.3.50:11133,10.12.3.50:12233
+      server-addr: 10.12.12.221:18848
+      # nacos配置中心相关
+      config:
+        # 开启nacos作为配置中心，默认值：true
+        enabled: true
+        # 作为配置中心的nacos服务器地址，默认值：${spring.cloud.nacos:server-addr}
+        server-addr: ${spring.cloud.nacos.server-addr}
+        # 配置文件读取的nacos命名空间ID，默认值：public
+        namespace: d6cde124-d5f6-45ed-b502-6be8a540f83e
+        # 配置文件在nacos命名空间中的分组，默认值：DEFAULT_GROUP
+        group: DEFAULT_GROUP
+        # 配置文件的文件前缀（配置文件名称），默认值：${spring.application.name}
+        prefix: application
+        # 配置文件的文件后缀（文件类型），默认值：properties
+        file-extension: yml
+        # 配置内容的编码方式，默认值：UTF-8
+        encode: UTF-8
+        # 获取配置的超时时间，单位：ms，默认值：3000
+        timeout: 3000
+        # 开启监听和自动刷新，动态感知配置变化，默认值：true
+        refresh-enabled: true
+        # AccessKey
+        #access-key: d6cde124-d5f6-45ed-b502-6be8a540f83e
+        # SecretKey
+        #secret-key: 123
+        # 引入共享配置（同一分组）
+        #shared-configs:
+          # 配置支持共享的 Data Id
+          #- data-id: comm.properties
+            # 配置 Data Id 所在分组，缺省默认 DEFAULT_GROUP
+            #group: DEFAULT_GROUP
+            # 配置Data Id 在配置变更时，是否动态刷新，缺省默认 false
+            #refresh: true
+        # 引入扩展配置（同一分组或不同分组）
+        extension-configs:
+          # 配置支持共享的 Data Id
+          - data-id: mysql-db.yml
+            # 配置 Data Id 所在分组，缺省默认 DEFAULT_GROUP
+            group: DEFAULT_GROUP
+            # 配置Data Id 在配置变更时，是否动态刷新，缺省默认 false
+            refresh: true
+
+          - data-id: application-dev.yml
+            # 配置 Data Id 所在分组，缺省默认 DEFAULT_GROUP
+            group: DEFAULT_GROUP
+            # 配置Data Id 在配置变更时，是否动态刷新，缺省默认 false
+            refresh: true
+      # nacos注册中心相关
+      discovery:
+        # 开启nacos作为服务注册中心，默认值：true
+        enabled: true
+        # 作为注册中心的nacos服务器地址，默认值：${spring.cloud.nacos:server-addr}
+        server-addr: ${spring.cloud.nacos.server-addr}
+        # 服务注册在nacso上的命名空间ID，默认值：public
+        namespace: d6cde124-d5f6-45ed-b502-6be8a540f83e
+
+        username: ${spring.cloud.nacos.username}
+        password: ${spring.cloud.nacos.password}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eadlon.testdemo.mapper.TestCountDataMapper">
+    <select id="getDataByAppid" resultType="com.eadlon.testdemo.entity.TestCountData">
+        SELECT
+            t.appid,t.ct,t.pkdate
+        FROM test_count_data t
+        <where>
+            t.appid = #{appId}
+        </where>
+        limit 1
+    </select>
+</mapper>
