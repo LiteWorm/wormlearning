@@ -4,7 +4,7 @@
     <!-- 在yaml配置添加logging.path: 配置文件路径-->
 
     <!-- 属性文件:在properties文件中找到对应的配置项 -->
-    <springProperty scope="context" name="logging.path" source="logging.path" defaultValue="./logs" />
+    <springProperty scope="context" name="logging.path" source="logging.path" defaultValue="D:\Aspire\git\eadlon\wormlearning\JAVA\spc\template\test-demo/logs" />
     <!-- nacos名字不要改动，不然会造成启动报警告，Failed to rename context Context has been already given a name nacos
     原因：项目框架 集成logback 与nacos 自带的logback 冲突， nacos的logback 已经先于 项目启动-->
     <contextName>nacos</contextName>
