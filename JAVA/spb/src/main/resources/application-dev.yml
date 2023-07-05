@@ -6,3 +6,5 @@ server:
     max-threads: '2000'
     acceptCount: '2000'
     connectionTimeout: '10000'
+logging:
+  config: classpath:logback-spring.xml

@@ -4,7 +4,6 @@ import com.eadlon.testdemo.entity.TestCountData;
 import com.eadlon.testdemo.mapper.TestCountDataMapper;
 import com.eadlon.testdemo.service.TestDbConnectService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,14 +13,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class TestDbConnectServiceImpl implements TestDbConnectService {
 
-    @Autowired
-    private TestCountDataMapper testCountDataMapper ;
+    private final TestCountDataMapper testCountDataMapper ;
+
+    public TestDbConnectServiceImpl(TestCountDataMapper testCountDataMapper) {
+        this.testCountDataMapper = testCountDataMapper;
+    }
 
     public TestCountData getDataByAppId(String appId){
 
-        TestCountData testCountData = testCountDataMapper.querryByAppid(appId);
-
-        return testCountData;
+        return testCountDataMapper.querryByAppid(appId);
     }
 
 }

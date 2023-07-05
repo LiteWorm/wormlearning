@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
  */
 @Component(value = "TestCountDataMapper")
 public interface TestCountDataMapper extends BaseMapper<TestCountData> {
-    //public TestCountData getDataAppid(String appid);
 
+    //public TestCountData getDataAppid(String appid);
     @Select("select t.appid,t.ct,t.pkdate FROM test_count_data t " +
             "where t.appid = #{appid}" +
             "limit 1 ")
