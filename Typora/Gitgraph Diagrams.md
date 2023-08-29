@@ -139,3 +139,160 @@ gitGraph
        commit id: "Highlight" type: HIGHLIGHT tag: "8.8.4"
        commit
 ```
+In this example, we have given custom tags to the commits. Also, see how we have combined all these attributes in a single commit declaration. You can mix-match these attributes as you like.
+# Create a new branch
+In Mermaid, in-order to create a new branch, you make use of the `branch` keyword. You also need to provide a name of the new branch. The name has to be unique and cannot be that of an existing branch. A branch name that could be confused for a keyword must be quoted within `""`. Usage examples: `branch develop`, `branch "cherry-pick"`
+
+When Mermaid, reads the `branch` keyword, it creates a new branch and sets it as the current branch. Equivalent to you creating a new branch and checking it out in Git world.
+
+Let see this in an example:
+## Code:
+```markdown
+gitGraph
+       commit
+       commit
+       branch develop
+       commit
+       commit
+       commit
+```
+```mermaid
+gitGraph
+       commit
+       commit
+       branch develop
+       commit
+       commit
+       commit
+```
+In this example, see how we started with default `main` branch, and pushed two commits on that. Then we created the `develop` branch, and all commits afterwards are put on the `develop` branch as it became the current branch.
+## Checking out an existing branch
+In Mermaid, in order to switch to an existing branch, you make use of the `checkout` keyword. You also need to provide a name of an existing branch. If no branch is found with the given name, it will result in console error. Usage example: `checkout develop`
+
+When Mermaid, reads the `checkout` keyword, it finds the given branch and sets it as the current branch. Equivalent to checking out a branch in the Git world.
+
+Let see modify our previous example:
+## Code:
+```markdown
+gitGraph
+       commit
+       commit
+       branch develop
+       commit
+       commit
+       commit
+       checkout main
+       commit
+       commit
+```
+```mermaid
+gitGraph
+       commit
+       commit
+       branch develop
+       commit
+       commit
+       commit
+       checkout main
+       commit
+       commit
+```
+In this example, see how we started with default `main` branch, and pushed two commits on that. Then we created the `develop` branch, and all three commits afterwards are put on the `develop` branch as it became the current branch. After this we made use of the `checkout` keyword to set the current branch as `main`, and all commit that follow are registered against the current branch, i.e. `main`.
+# Merging two branches
+In Mermaid, in order to merge or join to an existing branch, you make use of the `merge` keyword. You also need to provide the name of an existing branch to merge from. If no branch is found with the given name, it will result in console error. Also, you can only merge two separate branches, and cannot merge a branch with itself. In such case an error is throw.
+
+Usage example: `merge develop`
+
+When Mermaid, reads the `merge` keyword, it finds the given branch and its head commit (the last commit on that branch), and joins it with the head commit on the **current branch**. Each merge results in a **merge commit**, represented in the diagram with **filled double circle**.
+
+Let us modify our previous example to merge our two branches:
+## Code:
+```markdown
+gitGraph
+       commit
+       commit
+       branch develop
+       commit
+       commit
+       commit
+       checkout main
+       commit
+       commit
+       merge develop
+       commit
+       commit
+```
+```mermaid
+gitGraph
+       commit
+       commit
+       branch develop
+       commit
+       commit
+       commit
+       checkout main
+       commit
+       commit
+       merge develop
+       commit
+       commit
+```
+In this example, see how we started with default `main` branch, and pushed two commits on that. Then we created the `develop` branch, and all three commits afterwards are put on the `develop` branch as it became the current branch. After this we made use of the `checkout` keyword to set the current branch as `main`, and all commits that follow are registered against the current branch, i.e. `main`. After this we merge the `develop` branch onto the current branch `main`, resulting in a merge commit. Since the current branch at this point is still `main`, the last two commits are registered against that.
+
+You can also decorate your merge with similar attributes as you did for the commit using:
+
+* `id`--> To override the default ID with custom ID
+* `tag`--> To add a custom tag to your merge commit
+* `type`--> To override the default shape of merge commit. Here you can use other commit type mentioned earlier.
+And you can choose to use none, some or all of these attributes together. For example: `merge develop id: "my_custom_id" tag: "my_custom_tag" type: REVERSE`
+
+Let us see how this works with the help of the following diagram:
+## Code:
+```markdown
+gitGraph
+       commit id: "1"
+       commit id: "2"
+       branch nice_feature
+       checkout nice_feature
+       commit id: "3"
+       checkout main
+       commit id: "4"
+       checkout nice_feature
+       branch very_nice_feature
+       checkout very_nice_feature
+       commit id: "5"
+       checkout main
+       commit id: "6"
+       checkout nice_feature
+       commit id: "7"
+       checkout main
+       merge nice_feature id: "customID" tag: "customTag" type: REVERSE
+       checkout very_nice_feature
+       commit id: "8"
+       checkout main
+       commit id: "9"
+```
+```mermaid
+gitGraph
+       commit id: "1"
+       commit id: "2"
+       branch nice_feature
+       checkout nice_feature
+       commit id: "3"
+       checkout main
+       commit id: "4"
+       checkout nice_feature
+       branch very_nice_feature
+       checkout very_nice_feature
+       commit id: "5"
+       checkout main
+       commit id: "6"
+       checkout nice_feature
+       commit id: "7"
+       checkout main
+       merge nice_feature id: "customID" tag: "customTag" type: REVERSE
+       checkout very_nice_feature
+       commit id: "8"
+       checkout main
+       commit id: "9"
+```
