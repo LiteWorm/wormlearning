@@ -640,3 +640,4 @@ Now let's override the default values for the `git0` to `git3` variables:
        branch featureA
        commit
 ```
+See how the branch colors are changed to the values specified in the theme variables.
