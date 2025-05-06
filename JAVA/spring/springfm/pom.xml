@@ -23,7 +23,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
-      <version>4.3.16.RELEASE</version>
+      <version>6.1.14</version>
     </dependency>
 
 <!--    单元测试，通过单元测试，可以测试每个方法-->
