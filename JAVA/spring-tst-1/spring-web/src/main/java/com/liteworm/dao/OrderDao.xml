@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liteworm.dao.OrderDao">
+
+    <insert id="insetStrudent">
+        inset into student(name,age) values(#{name}, #{age})
+    </insert>
+    
+    <select id="selectStudents" resultType="com.liteworm.beans.Student" >
+        select id,name,age from student order by id desc limit 0 , 10
+    </select>
+
+</mapper>

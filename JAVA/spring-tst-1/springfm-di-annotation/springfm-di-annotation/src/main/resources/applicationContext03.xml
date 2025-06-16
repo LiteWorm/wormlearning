@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+        <!--
+            声明组件扫描器(context:component)，指定注解所在的报名，让框架找到注解
+            属性：
+                base-package：
+                    指定注解在项目中的包名，框架会扫描这个包和子包中所有类的注解，
+                    按照注解的功能，创建对象，赋值属性
+        -->
+<!--        <context:component-scan base-package="com.liteworm.ba01" />-->
+
+
+        <!--指定扫描多个包-->
+        <!--第一种，使用多次稻苗器，分别指定不同的包-->
+<!--        <context:component-scan base-package="com.liteworm.ba01" />-->
+<!--        <context:component-scan base-package="com.liteworm.ba02" />-->
+        <!--第二种，使用分隔符（,或者;）指定多个包-->
+<!--        <context:component-scan base-package="com.liteworm.ba01;com.liteworm.ba02" />-->
+        <!--第三种，指定父包-->
+        <context:component-scan base-package="com.liteworm.ba03" />
+</beans>
